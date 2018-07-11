@@ -2,4 +2,5 @@
 <resources>
     <dimen name="expression_size">30sp</dimen>
     <dimen name="result_display">60sp</dimen>
+    <dimen name="padding_display">10dp</dimen>
 </resources>

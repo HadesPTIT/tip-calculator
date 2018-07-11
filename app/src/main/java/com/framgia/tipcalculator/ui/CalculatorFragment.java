@@ -50,8 +50,14 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
         mTvResult = view.findViewById(R.id.tv_result);
         mTvExpress = view.findViewById(R.id.tv_express);
         mPref = getActivity().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        mTvResult.setText(mPref.getString(KEY_SAVE,getString(R.string.default_result)));
+        mTvResult.setText(mPref.getString(KEY_SAVE, getString(R.string.default_result)));
         setupCallback(view);
+    }
+
+    private void setupCallback(View view) {
+        for (int id : mIds) {
+            view.findViewById(id).setOnClickListener(this);
+        }
     }
 
     @Override
@@ -74,19 +80,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
             default: {
                 return super.onOptionsItemSelected(item);
             }
-
-        }
-
-
-    }
-
-    private void handleSaveLastResult() {
-        mPref.edit().putString(KEY_SAVE,String.valueOf(mResult)).apply();
-    }
-
-    private void setupCallback(View view) {
-        for (int id : mIds) {
-            view.findViewById(id).setOnClickListener(this);
         }
     }
 
@@ -110,6 +103,10 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
                 handleExpression(v);
             }
         }
+    }
+
+    private void handleSaveLastResult() {
+        mPref.edit().putString(KEY_SAVE, String.valueOf(mResult)).apply();
     }
 
     private void handleCalculate() {
