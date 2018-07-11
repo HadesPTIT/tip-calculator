@@ -12,4 +12,5 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new CalculatorFragment()).commit();
     }
+
 }

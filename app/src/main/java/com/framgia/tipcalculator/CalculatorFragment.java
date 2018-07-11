@@ -1,10 +1,15 @@
 package com.framgia.tipcalculator;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -15,6 +20,11 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     private TextView mTvResult;
     private TextView mTvExpress;
     private double mResult;
+    private SharedPreferences mPref;
+
+    private static final String PREF_NAME = "PREF_LAST_RESULT";
+    private static final String KEY_SAVE = "KEY_SAVE";
+
 
     private int[] mIds = {R.id.btn_0, R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_6,
             R.id.btn_7, R.id.btn_8, R.id.btn_9, R.id.btn_div, R.id.btn_mul, R.id.btn_add, R.id.btn_sub,
@@ -27,10 +37,48 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         mTvResult = view.findViewById(R.id.tv_result);
         mTvExpress = view.findViewById(R.id.tv_express);
+        mPref = getActivity().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        mTvResult.setText(mPref.getString(KEY_SAVE,getString(R.string.default_result)));
         setupCallback(view);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_clear: {
+                handleClear();
+                return true;
+            }
+            case R.id.menu_save_last_result: {
+                handleSaveLastResult();
+                return true;
+            }
+            default: {
+                return super.onOptionsItemSelected(item);
+            }
+
+        }
+
+
+    }
+
+    private void handleSaveLastResult() {
+        mPref.edit().putString(KEY_SAVE,String.valueOf(mResult)).apply();
     }
 
     private void setupCallback(View view) {
@@ -38,6 +86,7 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
             view.findViewById(id).setOnClickListener(this);
         }
     }
+
 
     @Override
     public void onClick(View v) {
@@ -77,7 +126,6 @@ public class CalculatorFragment extends Fragment implements View.OnClickListener
     }
 
     private void handleClear() {
-        mResult = 0.0;
         mTvExpress.setText("");
         mTvResult.setText("0");
     }

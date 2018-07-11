@@ -6,4 +6,7 @@
 
     <color name="colorDisplayBackground">#939090</color>
 
+    <color name="colorExpression">@android:color/white</color>
+    <color name="colorResult">@android:color/white</color>
+
 </resources>

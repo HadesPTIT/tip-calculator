@@ -21,10 +21,9 @@
             android:layout_weight="1"
             android:ellipsize="start"
             android:singleLine="true"
-            android:text="0.0"
             android:textAlignment="textEnd"
-            android:textColor="@android:color/white"
-            android:textSize="30sp" />
+            android:textColor="@color/colorExpression"
+            android:textSize="@dimen/expression_size" />
 
         <TextView
             android:id="@+id/tv_result"
@@ -34,8 +33,8 @@
             android:maxLines="1"
             android:text="0"
             android:textAlignment="textEnd"
-            android:textColor="@android:color/white"
-            android:textSize="60sp" />
+            android:textColor="@color/colorResult"
+            android:textSize="@dimen/result_display" />
 
     </LinearLayout>
 
@@ -54,21 +53,21 @@
                 style="@style/ButtonStyle"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="AC" />
+                android:text="@string/ac" />
 
             <Button
                 android:id="@+id/btn_change_sign"
                 style="@style/ButtonStyle"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="+/-" />
+                android:text="@string/sign" />
 
             <Button
                 android:id="@+id/btn_sp2"
                 style="@style/ButtonStyle"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="%" />
+                android:text="@string/mod" />
 
             <Button
                 android:id="@+id/btn_div"
@@ -76,7 +75,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/btn_operator_shape"
-                android:text="/" />
+                android:text="@string/div" />
 
         </TableRow>
 
@@ -88,21 +87,21 @@
                 style="@style/ButtonStyle"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="7" />
+                android:text="@string/num7" />
 
             <Button
                 android:id="@+id/btn_8"
                 style="@style/ButtonStyle"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="8" />
+                android:text="@string/num8" />
 
             <Button
                 android:id="@+id/btn_9"
                 style="@style/ButtonStyle"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="9" />
+                android:text="@string/num9" />
 
             <Button
                 android:id="@+id/btn_mul"
@@ -110,7 +109,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/btn_operator_shape"
-                android:text="*" />
+                android:text="@string/mul" />
 
         </TableRow>
 
@@ -122,21 +121,21 @@
                 style="@style/ButtonStyle"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="4" />
+                android:text="@string/num4" />
 
             <Button
                 android:id="@+id/btn_5"
                 style="@style/ButtonStyle"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="5" />
+                android:text="@string/num5" />
 
             <Button
                 android:id="@+id/btn_6"
                 style="@style/ButtonStyle"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="6" />
+                android:text="@string/num6" />
 
             <Button
                 android:id="@+id/btn_sub"
@@ -144,7 +143,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/btn_operator_shape"
-                android:text="-" />
+                android:text="@string/sub" />
 
         </TableRow>
 
@@ -156,21 +155,21 @@
                 style="@style/ButtonStyle"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="1" />
+                android:text="@string/num1" />
 
             <Button
                 android:id="@+id/btn_2"
                 style="@style/ButtonStyle"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="2" />
+                android:text="@string/num2" />
 
             <Button
                 android:id="@+id/btn_3"
                 style="@style/ButtonStyle"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="@string/num3" />
 
             <Button
                 android:id="@+id/btn_add"
@@ -178,7 +177,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/btn_operator_shape"
-                android:text="+" />
+                android:text="@string/add" />
 
         </TableRow>
 
@@ -191,7 +190,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:text="0" />
+                android:text="@string/num0" />
 
             <Button
                 android:id="@+id/btn_dot"
@@ -199,7 +198,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="." />
+                android:text="@string/dot" />
 
             <Button
                 android:id="@+id/btn_equal"
@@ -208,7 +207,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/btn_operator_shape"
-                android:text="=" />
+                android:text="@string/equal" />
 
         </TableRow>
 
