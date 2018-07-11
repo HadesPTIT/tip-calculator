@@ -1,4 +1,4 @@
-package com.framgia.tipcalculator;
+package com.framgia.tipcalculator.util;
 
 public class Calculate {
 

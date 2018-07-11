@@ -1,4 +1,4 @@
-package com.framgia.tipcalculator;
+package com.framgia.tipcalculator.ui;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -14,6 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.framgia.tipcalculator.util.Calculate;
+import com.framgia.tipcalculator.R;
 
 public class CalculatorFragment extends Fragment implements View.OnClickListener {
 
